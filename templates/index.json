@@ -4,9 +4,9 @@
             "type": "main",
             "settings": {
             }
-        },
-        "order": [
-            "main"
-        ]
-    }
+        }
+    },
+    "order": [
+        "main"
+    ]
 }
