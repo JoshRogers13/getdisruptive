@@ -1,0 +1,27 @@
+{% render 'scrolling-text',
+    topText: section.settings.scrolling_text_top,
+    bottomText: section.settings.scrolling_text_bottom
+%}
+
+{% schema %}
+{
+  "name": "Scrolling Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "scrolling_text_top",
+      "label": "t:settings_schema.scrolling_text.settings.top"
+    },
+    {
+      "type": "text",
+      "id": "scrolling_text_bottom",
+      "label": "t:settings_schema.scrolling_text.settings.bottom"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Text"
+    }
+  ]
+}
+{% endschema %}
