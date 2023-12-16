@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="header-inner">
+        <a class="header-logo" href="{{ shop.url }}">
+            Logo
+        </a>
+        <div class="header-nav">
+            <button class="header-nav-trigger" data-role="execute-open-mobile-nav">
+                {% render 'icons' with 'bars' %}
+                {% render 'icons' with 'delete' %}
+            </button>
+            <div class="navigation"> 
+                <span class="section-title small">Menu</span>
+                <ul class="navigation-inner">
+                    {% for link in section.settings.main_navigation.links %}
+                        <li class="nav-item {% if link.active %}current-nav-item{% endif %}">
+                            <a class="nav-link large" href="{{ link.url }}">
+                                {{ link.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% render 'scrolling-text',
+                    topText: 'Get Disruptive',
+                    bottomText: 'Get Disruptive'
+                %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_navigation",
+      "label": "t:settings_schema.header.settings.navigation"
+    }
+  ]
+}
+{% endschema %}

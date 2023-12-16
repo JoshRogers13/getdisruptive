@@ -1,0 +1,285 @@
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Common
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@mixin flexbox($align: center, $justify: center, $direction: row) {
+    align-items: $align;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+@mixin visuallyhidden() {
+    visibility: hidden;
+}
+
+body {
+    &.nav-open {
+        #shopify-section-header {
+            .header-inner {
+                .header-nav {
+                    .header-nav-trigger {
+                        .icon--bars {
+                            @include visuallyhidden();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:not(.nav-open) {
+        .icon--delete {
+            @include visuallyhidden();
+        }
+    }
+}
+
+#shopify-section-header {
+    .header-inner {
+        @include flexbox($justify: space-between);
+
+        .header-nav {
+            .header-nav-trigger {
+                position: relative;
+                z-index: var(--z-index-mid);
+
+                .icon--bars,
+                .icon--delete {
+                    transition: var(--fast-transtion);
+                }
+
+                .icon--bars {
+                    transform: scaleY(1);
+                }
+
+                .icon--delete {
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%) scaleY(0);
+
+                    svg {
+                        width: calc(var(--icon-width) * 0.75);
+                    }
+                }
+            }
+
+            .navigation {
+                margin: 0;
+                z-index: var(--z-index-low);
+
+                .navigation-inner {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+
+                    .nav-item {
+                        display: inline-block;
+                        font-family: var(--heading-font);
+                        text-transform: uppercase;
+                
+                        .nav-link {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Mobile & Tablet
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    body {
+        &.nav-opening {
+            #shopify-section-header {
+                .header-inner {
+                    .header-nav {
+                        .header-nav-trigger {
+                            .icon--bars {
+                                transform: scaleY(0);
+                            }
+
+                            .icon--delete {
+                                transform: translateY(-50%) scaleY(0);
+                            }
+                        }
+
+                        .navigation {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.nav-open {
+            #shopify-section-header {
+                .header-inner {
+                    .header-nav {
+                        .header-nav-trigger {
+                            .icon--delete {
+                                transform: translateY(-50%) scaleY(1);
+
+                                svg {
+                                    fill: var(--white-color);
+                                }
+                            }
+                        }
+
+                        .navigation {
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #shopify-section-header {
+        .header-inner {
+            .header-nav {
+                .navigation {
+                    align-items: flex-start;
+                    background-color: var(--secondary-color);
+                    bottom: 0;
+                    display: none;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    left: 0;
+                    padding: calc(var(--base-padding) * 6) var(--base-padding);
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    transition: var(--slow-transtion);
+                    transform: scale(0);
+
+                    &:after {
+                        background-image: url('https://cdn.shopify.com/s/files/1/0676/1843/9427/files/contour-background-v2.png?v=1702724627');
+                        background-position: center;
+                        background-size: cover;
+                        bottom: 0;
+                        content: '';
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        z-index: var(--z-index-lowest);
+                    }
+
+                    .section-title {
+                        position: relative;
+                        z-index: var(--z-index-low);
+                    }
+
+                    .navigation-inner {
+                        @include flexbox(flex-start, flex-start, column);
+                        height: 85%;
+                        overflow-y: scroll;
+                        width: 100%;
+
+                        .nav-item {
+                            position: relative;
+                            z-index: var(--z-index-low);
+                        }
+                    
+                        .nav-item {
+                            opacity: 0;
+                            padding: calc(var(--base-padding) / 2) 0;
+                            transform: translateX(-50%);
+                            transition: var(--default-transtion);
+                    
+                            &.nav-item-show {
+                                opacity: 1;
+                                transform: translateX(0);
+                            }
+                    
+                            &.current-nav-item {
+                                background-color: var(--primary-color);
+                                margin-bottom: calc(var(--base-padding) / 2);
+                    
+                                .nav-link {
+                                    color: var(--secondary-color);
+                                    padding: 0 calc(var(--base-padding) / 2);
+                                }
+                            }
+                    
+                            .nav-link {
+                                color: var(--white-color);
+                            }
+                        }
+                    }
+
+                    .scrolling-text-inner {
+                        bottom: 0;
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        z-index: var(--z-index-low);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Tablet & Desktop
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (min-width: 540px) {
+    #shopify-section-header {
+        .header-inner {
+            .header-nav {
+                button.header-nav-trigger {
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: var(--primary-color);
+                        color: var(--secondary-color);
+
+                        .icon--wrapper {
+                            svg {
+                                fill: var(--secondary-color);
+                            }
+                        }
+                    }
+                }
+
+                .navigation {
+                    .navigation-inner {
+                        .nav-item {
+                            &:hover {
+                                opacity: .6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Desktop
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    #shopify-section-header {
+        .header-inner {
+            .header-nav {
+                button.header-nav-trigger {
+                    display: none;
+                }
+
+                .navigation {
+                    .section-title,
+                    .scrolling-text-inner {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
