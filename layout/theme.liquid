@@ -4,10 +4,76 @@
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width,initial-scale=1'>
 
+        <link rel='preconnect' href='https://fonts.shopifycdn.com' crossorigin>
+
 		{{ content_for_header }}
+
+        <style>
+            {{ settings.body_font | font_face }}
+            {{ settings.heading_font | font_face }}
+
+            :root {
+                /*-- General --*/
+                --element-height: 40px;
+                --base-padding: 10px;
+                --fast-transtion: .2s ease-in-out;
+                --default-transtion: .3s ease-in-out;
+                --slow-transtion: .5s ease-in-out;
+                --icon-width: 18px;
+
+                /*-- Buttons --*/
+
+                
+                /*-- Colors --*/
+                --primary-color: {{ settings.primary_color }};
+                --secondary-color: {{ settings.secondary_color }};
+                --tertiary-color: {{ settings.tertiary_color }};
+
+                --body-color: {{ settings.body_color }};
+                --text-color: {{ settings.text_color }};
+                --headings-color: {{ settings.headings_color }};
+
+                --white-color: #fff;
+                --black-color: #0e0e0e;
+
+                /*-- Typography --*/
+                --main-font: {{ settings.body_font.family }};
+                --heading-font: {{ settings.heading_font.family }};
+
+                --small-font-m: calc(16px + 2vw);
+                --mid-font-m: calc(22px + 3vw);
+                --large-font-m: calc(28px + 4vw);
+
+                --small-font-t: calc(20px + 2vw);
+                --mid-font-t: calc(26px + 3vw);
+                --large-font-t: calc(32px + 4vw);
+
+                --small-font-d: calc(24px + 2vw);
+                --mid-font-d: calc(30px + 3vw);
+                --large-font-d: calc(36px + 4vw);
+
+                /*-- Z-index --*/
+                --z-index-lowest: 10;
+                --z-index-low: 20;
+                --z-index-mid: 30;
+                --z-index-high: 40;
+                --z-index-highest: 50;
+            }
+        </style>
+
+        {% comment %} Import stylesheets {% endcomment %}
+        {{ 'theme.css' | asset_url | stylesheet_tag }}
+        {{ 'headings.css' | asset_url | stylesheet_tag }}
+        {{ 'buttons.css' | asset_url | stylesheet_tag }}
+        {{ 'header.css' | asset_url | stylesheet_tag }}
+        {{ 'scrolling-text.css' | asset_url | stylesheet_tag }}
+
+        {% comment %} Import Scripts {% endcomment %}
+        <script src='{{ "header.js" | asset_url }}' defer></script>
 	</head> 
 
 	<body>
+        {% section 'header' %}
 		<main class="main-content" role='main'>
 			{{ content_for_layout }} 
 		</main>
