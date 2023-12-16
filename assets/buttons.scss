@@ -1,0 +1,20 @@
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Common
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@mixin flexbox($align: center, $justify: center, $direction: row) {
+    align-items: $align;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+body {
+    button {
+        @include flexbox();
+        background-color: transparent;
+        border: none;
+        height: var(--element-height);
+        min-width: var(--element-height);
+        padding: 0;
+    }
+}

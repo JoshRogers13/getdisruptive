@@ -1,0 +1,14 @@
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Common
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+body button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  height: var(--element-height);
+  min-width: var(--element-height);
+  padding: 0;
+}
