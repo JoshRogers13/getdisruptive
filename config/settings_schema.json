@@ -1,3 +1,76 @@
 [
-    
+    {
+		"name": "Colors",
+		"settings": [
+			{
+				"type": "header",
+				"content": "t:settings_schema.general.accent_colors"
+			},
+			{
+				"type": "color",
+				"id": "primary_color",
+				"label": "t:settings_schema.general.primary",
+				"default": "#CCEA00"
+			},
+			{
+				"type": "color",
+				"id": "secondary_color",
+				"label": "t:settings_schema.general.secondary",
+				"default": "#000"
+			},
+			{
+				"type": "color",
+				"id": "tertiary_color",
+				"label": "t:settings_schema.general.tertiary",
+				"default": "#E8E8E8"
+			},
+			{
+				"type": "header",
+				"content": "t:settings_schema.colors.settings.theme_colors"
+			},
+			{
+				"type": "color",
+				"id": "body_color",
+				"label": "t:settings_schema.colors.settings.body_color",
+				"default": "#E8E8E8"
+			},
+			{
+				"type": "color",
+				"id": "text_color",
+				"label": "t:settings_schema.colors.settings.text_color",
+				"default": "#000"
+			},
+			{
+				"type": "color",
+				"id": "headings_color",
+				"label": "t:settings_schema.colors.settings.headings_color",
+				"default": "#000"
+			}
+		]
+	},
+	{
+		"name": "Typography",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Body"
+			},
+			{
+				"type": "font_picker",
+				"id": "body_font",
+				"default": "work_sans_n4",
+				"label": "t:settings_schema.typography.settings.body_font"
+			},
+			{
+				"type": "header",
+				"content": "Headings"
+			},
+			{
+				"type": "font_picker",
+				"id": "heading_font",
+				"default": "oswald_n4",
+				"label": "t:settings_schema.typography.settings.heading_font"
+			}
+		]
+	}
 ]
