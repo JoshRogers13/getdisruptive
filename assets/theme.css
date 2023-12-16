@@ -1,0 +1,90 @@
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Common
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+#preview-bar-iframe {
+  display: none !important;
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+  font-family: var(--main-font);
+  margin: 0;
+  overflow-x: hidden;
+}
+body a {
+  text-decoration: none;
+}
+body ul li {
+  list-style-type: none;
+}
+body .small,
+body .medium,
+body .large {
+  font-weight: bold;
+  line-height: 1;
+}
+body .icon--wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body .icon--wrapper svg {
+  width: var(--icon-width);
+}
+body .section-title {
+  background-color: var(--primary-color);
+  box-sizing: border-box;
+  color: var(--secondary-color);
+  display: inline-block;
+  font-family: var(--heading-font);
+  margin-bottom: calc(var(--base-padding) * 6);
+  max-width: 240px;
+  padding: var(--base-padding) calc(var(--base-padding) * 2);
+  text-transform: uppercase;
+  width: 65%;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Mobile
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 540px) {
+  body .small {
+    font-size: var(--small-font-m);
+  }
+  body .medium {
+    font-size: var(--mid-font-m);
+  }
+  body .large {
+    font-size: var(--large-font-m);
+  }
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Tablet
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 992px) and (min-width: 540px) {
+  body .small {
+    font-size: var(--small-font-t);
+  }
+  body .medium {
+    font-size: var(--mid-font-t);
+  }
+  body .large {
+    font-size: var(--large-font-t);
+  }
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Desktop
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+  body .small {
+    font-size: var(--small-font-d);
+  }
+  body .medium {
+    font-size: var(--mid-font-d);
+  }
+  body .large {
+    font-size: var(--large-font-d);
+  }
+}
