@@ -1,0 +1,21 @@
+{% for item in cart.items %}
+  {{ item.title }}
+  {{ item.quantity }}
+
+  <a href="{{ item.url_to_remove }}">Remove</a>
+{% endfor %}
+
+<form action="{{ routes.cart_url }}" method="post">
+  {% for item in cart.items %}
+    <!-- line item info -->
+  {% endfor %}
+
+  <input type="submit" name="checkout" value="Checkout">
+</form>
+
+
+{% schema %}
+{
+  "name": "Cart Main"
+}
+{% endschema %}
