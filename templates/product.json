@@ -3,10 +3,34 @@
     "main": {
       "type": "main-product",
       "settings": {
+        "product_top_padding": 20,
+        "product_bottom_padding": 20,
+        "product_container_width": 1920,
+        "product_image_aspect_ratio": "3\/4",
+        "product_split_title": true,
+        "product_per_unit": "Per Box",
+        "usp_messaging": "30-Day Guarantee • Free UK Mainland Shipping over £65"
+      }
+    },
+    "17036732690c621518": {
+      "type": "apps",
+      "blocks": {
+        "b503a393-697e-4feb-9db2-02bf8487f7df": {
+          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "b503a393-697e-4feb-9db2-02bf8487f7df"
+      ],
+      "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "17036732690c621518"
   ]
 }
