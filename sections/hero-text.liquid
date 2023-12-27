@@ -1,0 +1,49 @@
+<section class="hero-text-section">
+    <div class="container">
+        <div class="hero-text-inner">
+            <div class="hero-text">
+              <span class="section-title secondary small">{{ section.settings.pretitle }}</span>
+              {{ section.settings.title }}
+            </div>
+            <div class="buttons-wrapper">
+              <a href="{{ section.settings.button_link }}" class="button secondary extrasmall">
+                <span>{{ section.settings.button_text }}</span>
+                {% render 'icons' with 'chevron-right' %}
+              </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pretitle",
+      "label": "t:settings_schema.general.pretitle"
+    },
+    {
+      "type": "html",
+      "id": "title",
+      "label": "t:settings_schema.general.title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:settings_schema.general.button_text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:settings_schema.general.button_link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Text"
+    }
+  ]
+}
+{% endschema %}

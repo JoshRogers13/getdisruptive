@@ -4,7 +4,11 @@
             "accent_colors": "Accent Colors",
             "primary": "Primary",
             "secondary": "Secondary",
-            "tertiary": "Tertiary"
+            "tertiary": "Tertiary",
+            "pretitle": "Pretitle",
+            "title": "Title",
+            "button_text": "Button Text",
+            "button_link": "Button Link"
         },
         "colors": {
             "settings": {

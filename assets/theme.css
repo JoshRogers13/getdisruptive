@@ -18,6 +18,12 @@ body a {
 body ul li {
   list-style-type: none;
 }
+body .container {
+  margin: 0 auto;
+  max-width: var(--content-width);
+  width: 100%;
+}
+body .extrasmall,
 body .small,
 body .medium,
 body .large {
@@ -34,22 +40,65 @@ body .icon--wrapper svg {
   width: var(--icon-width);
 }
 body .section-title {
-  background-color: var(--primary-color);
   box-sizing: border-box;
-  color: var(--secondary-color);
   display: inline-block;
   font-family: var(--heading-font);
-  margin-bottom: calc(var(--base-padding) * 6);
-  max-width: 240px;
   padding: var(--base-padding) calc(var(--base-padding) * 2);
   text-transform: uppercase;
-  width: 65%;
+  width: 85%;
+}
+body .section-title:has(+ *) {
+  margin-bottom: calc(var(--base-padding) * 6);
+}
+body .section-title.primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+body .section-title.secondary {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+body .hero-text-section {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: var(--primary-color);
+  background-image: url("https://cdn.shopify.com/s/files/1/0676/1843/9427/files/chevron-background-v2.png?v=1703419285");
+  background-position: bottom center;
+  background-size: cover;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+body .hero-text-section .container,
+body .hero-text-section .hero-text-inner {
+  height: 100%;
+}
+body .hero-text-section .hero-text-inner {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1440px;
+}
+body .hero-text-section .hero-text-inner .hero-text {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
 Mobile
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 540px) {
+  body section {
+    padding: 0 calc(var(--base-padding) * 2);
+  }
+  body .extrasmall {
+    font-size: var(--extra-small-font-m);
+  }
   body .small {
     font-size: var(--small-font-m);
   }
@@ -59,11 +108,24 @@ Mobile
   body .large {
     font-size: var(--large-font-m);
   }
+  body .section-title {
+    max-width: 280px;
+  }
+  body .hero-text-section {
+    height: calc(100dvh - 60px);
+    padding-bottom: calc(var(--base-padding) * 2);
+  }
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
 Tablet
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 992px) and (min-width: 540px) {
+  body section {
+    padding: 0 calc(var(--base-padding) * 4);
+  }
+  body .extrasmall {
+    font-size: var(--extra-small-font-t);
+  }
   body .small {
     font-size: var(--small-font-t);
   }
@@ -73,11 +135,24 @@ Tablet
   body .large {
     font-size: var(--large-font-t);
   }
+  body .section-title {
+    max-width: 380px;
+  }
+  body .hero-text-section {
+    height: calc(100dvh - 80px);
+    padding-bottom: calc(var(--base-padding) * 4);
+  }
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
 Desktop
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (min-width: 992px) {
+  body section {
+    padding: 0 calc(var(--base-padding) * 6);
+  }
+  body .extrasmall {
+    font-size: var(--extra-small-font-d);
+  }
   body .small {
     font-size: var(--small-font-d);
   }
@@ -86,5 +161,12 @@ Desktop
   }
   body .large {
     font-size: var(--large-font-d);
+  }
+  body .section-title {
+    max-width: 400px;
+  }
+  body .hero-text-section {
+    height: calc(100dvh - 67px);
+    padding-bottom: calc(var(--base-padding) * 4);
   }
 }

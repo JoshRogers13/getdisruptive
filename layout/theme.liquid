@@ -14,6 +14,7 @@
 
             :root {
                 /*-- General --*/
+                --content-width: 1920px;
                 --element-height: 40px;
                 --base-padding: 10px;
                 --fast-transtion: .2s ease-in-out;
@@ -40,15 +41,18 @@
                 --main-font: {{ settings.body_font.family }};
                 --heading-font: {{ settings.heading_font.family }};
 
+                --extra-small-font-m: calc(12px + 2vw);
                 --small-font-m: calc(16px + 2vw);
                 --mid-font-m: calc(22px + 3vw);
                 --large-font-m: calc(28px + 4vw);
 
+                --extra-small-font-t: calc(14px + 2vw);
                 --small-font-t: calc(20px + 2vw);
                 --mid-font-t: calc(26px + 3vw);
                 --large-font-t: calc(32px + 4vw);
 
-                --small-font-d: calc(24px + 2vw);
+                --extra-small-font-d: 24px;
+                --small-font-d: calc(24px + 1vw);
                 --mid-font-d: calc(30px + 3vw);
                 --large-font-d: calc(36px + 4vw);
 

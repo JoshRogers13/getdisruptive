@@ -1,12 +1,22 @@
 {
-    "sections": {
-        "main": {
-            "type": "main",
-            "settings": {
-            }
-        }
+  "sections": {
+    "e547ad9e-ce39-43dd-a802-75952fb9764c": {
+      "type": "hero-text",
+      "settings": {
+        "pretitle": "Lorem Ipsum dolor",
+        "title": "<h1>Lorem <span>Ipsumium<\/span> Dolor<\/h1>"
+      }
     },
-    "order": [
-        "main"
-    ]
+    "efe47ce8-e041-44e0-8653-85c7c73ee1d3": {
+      "type": "scrolling-text",
+      "settings": {
+        "scrolling_text_top": "Get Disruptive",
+        "scrolling_text_bottom": "Get Disruptive"
+      }
+    }
+  },
+  "order": [
+    "e547ad9e-ce39-43dd-a802-75952fb9764c",
+    "efe47ce8-e041-44e0-8653-85c7c73ee1d3"
+  ]
 }
