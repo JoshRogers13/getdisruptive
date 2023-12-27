@@ -1,10 +1,27 @@
 <section>
 
-    {% for product in section.settings.products.products %}
-        {{ product.title }}
-    {% endfor %}
+    <form class="bundle-products" action="/cart/add">
+        {% for product in section.settings.products %}
+            {% if product.available %}
+                {% for variant in product.variants %}
+                    {% if variant.available %}
+                        {{ product.title }}
+                        <input type="checkbox"
+                                id="{{ variant.id }}"
+                                name="bundle[{{ forloop.index }}]"
+                                value="{{ variant.id | escape }}" />
+                    {% endif %}
+                {% endfor %}
+
+                {% render 'subscription-product' %}
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit">Add to cart</button>
+    </form>
 
 </section>
+
 
 {% schema %}
 {

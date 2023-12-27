@@ -44,3 +44,60 @@ var formatMoney = function(cents, format) {
 
   return formatString.replace(placeholderRegex, value);
 };
+
+
+$(() => {
+
+  const form = $('.bundle-products');
+
+  form.on('submit', event => {
+    event.preventDefault();
+
+    const formData = form.serializeArray();
+
+    const options = formData.filter(function(data) {
+        return data.name.startsWith('bundle') || data.name === 'id';
+    });
+
+    const items = options.map(function(option) {
+        return {
+            id: option.value,
+            quantity: 1
+        };
+    });
+
+    console.log(items);
+
+    // Add selected products to cart.
+    const addToCart = fetch('/cart/add.js', {
+        method: 'POST',
+        body: JSON.stringify({ items }),
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With':'xmlhttprequest'
+        }
+    });
+
+    // After product(s) have been added to cart.
+    addToCart.then(async response => {
+        // If we've successfully added to cart.
+        if (response.ok) {
+            // Go to cart page.
+            window.location.assign('/cart');
+
+            // Stop execution.
+            return;
+        }
+
+        // Get response data.
+        const { description } = await response.json();
+
+        // Only throw an error if we haven't successfully added to cart.
+        throw new Error(description);
+    }).catch(error => {
+        // If there's an error - show it to user.
+        console.log('error');
+    });
+  });
+});

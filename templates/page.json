@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "bundle": {
+      "type": "bundle-main",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "bundle"
+  ]
+}
