@@ -7,31 +7,39 @@
                     {% if variant.available %}
                         {{ product.title }}
                         <input type="checkbox"
+                                data-productid="{{ product.id }}"
                                 id="{{ variant.id }}"
                                 name="bundle[{{ forloop.index }}]"
                                 value="{{ variant.id | escape }}" />
                     {% endif %}
                 {% endfor %}
-
-                {% render 'subscription-product' %}
             {% endif %}
         {% endfor %}
+
+        <div class="rc-custom-injection-point"></div>
 
         <button type="submit">Add to cart</button>
     </form>
 
 </section>
 
+<script src="{{ 'product.js' | asset_url }}" defer></script>
+
+<script>
+
+    window.ReChargeWidget.createWidget({ productId: 8253204168963, injectionParent: '.rc-custom-injection-point' });
+
+</script>
 
 {% schema %}
 {
-    "name": "Bundle",
-    "settings": [
-        {
-            "type": "product_list",
-            "id": "products",
-            "label": "Products"
-        }
-    ]
+  "name": "Bundle",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Products"
+    }
+  ]
 }
 {% endschema %}

@@ -63,13 +63,11 @@
                         </div>
                     {% endif %}
 
-                    {% if product.available %}{% render 'subscription-product' %}{% endif %} 
-
                     <div class="product--price-wrapper">
                         <p class="product--price product--current-price">
                             {{ product.selected_or_first_available_variant.price | money }}
                         </p>
-                        <p class="product--price product--compare-price {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}visually-hidden{%endunless %}">
+                        <p class="product--price product--compare-price {% unless product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}visually-hidden{% endunless %}">
                             {{ product.selected_or_first_available_variant.compare_at_price | money }}
                         </p>
                         <p class="product--unit-price">
@@ -211,36 +209,36 @@
       "unit": "px"
     },
     {
-        "type": "select",
-        "id": "product_image_aspect_ratio",
-        "label": "Product image aspect ratio",
-        "info": "Selecting auto will allow the image height to be set depending on the file aspect ratio",
-        "options": [
-            {
-                "value": "auto",
-                "label": "Auto"
-            },
-            {
-                "value": "4/3",
-                "label": "Landscape"
-            },
-            {
-                "value": "1/1",
-                "label": "Square"
-            },
-            {
-                "value": "3/4",
-                "label": "Portrait"
-            }
-        ],
-        "default": "3/4"
+      "type": "select",
+      "id": "product_image_aspect_ratio",
+      "label": "Product image aspect ratio",
+      "info": "Selecting auto will allow the image height to be set depending on the file aspect ratio",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape"
+        },
+        {
+          "value": "1/1",
+          "label": "Square"
+        },
+        {
+          "value": "3/4",
+          "label": "Portrait"
+        }
+      ],
+      "default": "3/4"
     },
     {
-        "type": "checkbox",
-        "id": "product_split_title",
-        "label": "Split Product Title",
-        "default": true,
-        "info": "This will look for the first '-' in the product name and split the content before it as the title and the content after as the subtitle or in this example the flavour"
+      "type": "checkbox",
+      "id": "product_split_title",
+      "label": "Split Product Title",
+      "default": true,
+      "info": "This will look for the first '-' in the product name and split the content before it as the title and the content after as the subtitle or in this example the flavour"
     },
     {
       "type": "text",
