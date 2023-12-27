@@ -1,0 +1,20 @@
+<section>
+
+    {% for product in section.settings.products.products %}
+        {{ product.title }}
+    {% endfor %}
+
+</section>
+
+{% schema %}
+{
+    "name": "Bundle",
+    "settings": [
+        {
+            "type": "product_list",
+            "id": "products",
+            "label": "Products"
+        }
+    ]
+}
+{% endschema %}
