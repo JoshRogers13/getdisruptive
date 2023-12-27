@@ -29,6 +29,13 @@ body {
         }
     }
 
+    .container {
+        margin: 0 auto;
+        max-width: var(--content-width);
+        width: 100%;
+    }
+
+    .extrasmall,
     .small,
     .medium, 
     .large {
@@ -45,16 +52,51 @@ body {
     }
 
     .section-title {
-        background-color: var(--primary-color);
         box-sizing: border-box;
-        color: var(--secondary-color);
         display: inline-block;
         font-family: var(--heading-font);
-        margin-bottom: calc(var(--base-padding) * 6);
-        max-width: 240px;
         padding: var(--base-padding) calc(var(--base-padding) * 2);
         text-transform: uppercase;
-        width: 65%;
+        width: 85%;
+
+        &:has(+ *) {
+            margin-bottom: calc(var(--base-padding) * 6);
+        }
+
+        &.primary {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        &.secondary {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+        }
+    }
+
+    .hero-text-section {
+        @include flexbox(center, flex-start, row);
+        background-color: var(--primary-color);
+        background-image: url('https://cdn.shopify.com/s/files/1/0676/1843/9427/files/chevron-background-v2.png?v=1703419285');
+        background-position: bottom center;
+        background-size: cover;
+        box-sizing: border-box;
+        min-height: 500px;
+
+        .container,
+        .hero-text-inner {
+            height: 100%;
+        }
+
+        .hero-text-inner {
+            @include flexbox(flex-start, center, column);
+            max-width: 1440px;
+
+            .hero-text {
+                @include flexbox(flex-start, center, column);
+                flex-grow: 1;
+            }
+        }
     }
 }
 
@@ -63,6 +105,14 @@ Mobile
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 540px) {
     body {
+        section {
+            padding: 0 calc(var(--base-padding) * 2);
+        }
+
+        .extrasmall {
+            font-size: var(--extra-small-font-m);
+        }
+
         .small {
             font-size: var(--small-font-m);
         }
@@ -74,6 +124,15 @@ Mobile
         .large {
             font-size: var(--large-font-m);
         }
+
+        .section-title {
+            max-width: 280px;
+        }
+
+        .hero-text-section {
+            height: calc(100dvh - 60px);
+            padding-bottom: calc(var(--base-padding) * 2);
+        }
     }
 }
 
@@ -82,6 +141,14 @@ Tablet
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 992px) and (min-width: 540px) {
     body {
+        section {
+            padding: 0 calc(var(--base-padding) * 4);
+        }
+
+        .extrasmall {
+            font-size: var(--extra-small-font-t);
+        }
+
         .small {
             font-size: var(--small-font-t);
         }
@@ -93,6 +160,15 @@ Tablet
         .large {
             font-size: var(--large-font-t);
         }
+
+        .section-title {
+            max-width: 380px;
+        }
+
+        .hero-text-section {
+            height: calc(100dvh - 80px);
+            padding-bottom: calc(var(--base-padding) * 4);
+        }
     }
 }
 
@@ -101,6 +177,14 @@ Desktop
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (min-width: 992px) {
     body {
+        section {
+            padding: 0 calc(var(--base-padding) * 6);
+        }
+
+        .extrasmall {
+            font-size: var(--extra-small-font-d);
+        }
+
         .small {
             font-size: var(--small-font-d);
         }
@@ -111,6 +195,15 @@ Desktop
 
         .large {
             font-size: var(--large-font-d);
+        }
+
+        .section-title {
+            max-width: 400px;
+        }
+
+        .hero-text-section {
+            height: calc(100dvh - 67px);
+            padding-bottom: calc(var(--base-padding) * 4);
         }
     }
 }

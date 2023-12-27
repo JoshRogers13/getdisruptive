@@ -1,35 +1,39 @@
 {
-    "settings_schema": {
-        "general": {
-            "accent_colors": "Accent Colors",
-            "primary": "Primary",
-            "secondary": "Secondary",
-            "tertiary": "Tertiary"
-        },
-        "colors": {
-            "settings": {
-                "theme_colors": "Theme Colors",
-                "body_color": "Background Color",
-                "text_color": "Text Color",
-                "headings_color": "Heading Color"
-            }
-        },
-        "header": {
-            "settings": {
-                "navigation": "Navigation"
-            }
-        },
-        "scrolling_text": {
-            "settings": {
-                "top": "Top Scrolling Text",
-                "bottom": "Bottom Scrolling Text"
-            }
-        },
-        "typography": {
-            "settings": {
-                "body_font": "Main font",
-                "heading_font": "Heading font"
-            }
-        }
+  "settings_schema": {
+    "general": {
+      "accent_colors": "Accent Colors",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "pretitle": "Pretitle",
+      "title": "Title",
+      "button_text": "Button Text",
+      "button_link": "Button Link"
+    },
+    "colors": {
+      "settings": {
+        "theme_colors": "Theme Colors",
+        "body_color": "Background Color",
+        "text_color": "Text Color",
+        "headings_color": "Heading Color"
+      }
+    },
+    "header": {
+      "settings": {
+        "navigation": "Navigation"
+      }
+    },
+    "scrolling_text": {
+      "settings": {
+        "top": "Top Scrolling Text",
+        "bottom": "Bottom Scrolling Text"
+      }
+    },
+    "typography": {
+      "settings": {
+        "body_font": "Main font",
+        "heading_font": "Heading font"
+      }
     }
+  }
 }

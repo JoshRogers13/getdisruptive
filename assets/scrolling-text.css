@@ -2,6 +2,10 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
 Common
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
+:root {
+  --scrolling-duration: 10s;
+}
+
 .scrolling-text-inner {
   align-items: center;
   display: flex;
@@ -27,14 +31,14 @@ Common
   z-index: var(--z-index-lowest);
 }
 .scrolling-text-inner .scrolling-text.scrolling-text-top span {
-  animation: scrollingTextTop 8s linear infinite;
+  animation: scrollingTextTop var(--scrolling-duration) linear infinite;
   color: var(--white-color);
 }
 .scrolling-text-inner .scrolling-text.scrolling-text-bottom {
   background-color: var(--white-color);
 }
 .scrolling-text-inner .scrolling-text.scrolling-text-bottom span {
-  animation: scrollingTextBottom 8s linear infinite;
+  animation: scrollingTextBottom var(--scrolling-duration) linear infinite;
   color: var(--secondary-color);
 }
 .scrolling-text-inner .scrolling-text span {
@@ -74,13 +78,13 @@ Mobile
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 540px) {
   .scrolling-text-inner {
-    min-height: 180px;
+    min-height: 40vw;
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-top {
-    transform: rotate(8deg) translateY(80%);
+    transform: rotate(8deg) translateY(40%);
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-bottom {
-    transform: rotate(-3deg);
+    transform: rotate(-3deg) translateY(-20%);
   }
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,13 +92,13 @@ Tablet
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (max-width: 992px) and (min-width: 540px) {
   .scrolling-text-inner {
-    min-height: 240px;
+    min-height: 22vw;
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-top {
-    transform: rotate(5deg) translateY(80%);
+    transform: rotate(5deg) translateY(40%);
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-bottom {
-    transform: rotate(-2deg);
+    transform: rotate(-2deg) translateY(-20%);
   }
 }
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -102,12 +106,12 @@ Desktop
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media (min-width: 992px) {
   .scrolling-text-inner {
-    min-height: 380px;
+    min-height: 20vw;
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-top {
-    transform: rotate(5deg) translateY(80%);
+    transform: rotate(5deg) translateY(40%);
   }
   .scrolling-text-inner .scrolling-text.scrolling-text-bottom {
-    transform: rotate(-2deg);
+    transform: rotate(-2deg) translateY(-20%);
   }
 }

@@ -35,6 +35,9 @@ body {
 }
 
 #shopify-section-header {
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+
     .header-inner {
         @include flexbox($justify: space-between);
 
@@ -86,6 +89,15 @@ body {
                 }
             }
         }
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Mobile
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (max-width: 540px) {
+    #shopify-section-header {
+        padding: var(--base-padding) calc(var(--base-padding) * 2);
     }
 }
 
@@ -150,7 +162,8 @@ Mobile & Tablet
                     flex-direction: column;
                     justify-content: flex-start;
                     left: 0;
-                    padding: calc(var(--base-padding) * 6) var(--base-padding);
+                    overflow-y: scroll;
+                    padding-top: calc(var(--base-padding) * 6);
                     position: fixed;
                     right: 0;
                     top: 0;
@@ -171,6 +184,7 @@ Mobile & Tablet
                     }
 
                     .section-title {
+                        margin-left: calc(var(--base-padding) * 2);
                         position: relative;
                         z-index: var(--z-index-low);
                     }
@@ -178,7 +192,9 @@ Mobile & Tablet
                     .navigation-inner {
                         @include flexbox(flex-start, flex-start, column);
                         height: 85%;
+                        min-height: 450px;
                         overflow-y: scroll;
+                        padding: 0 calc(var(--base-padding) * 2);
                         width: 100%;
 
                         .nav-item {
@@ -212,12 +228,8 @@ Mobile & Tablet
                             }
                         }
                     }
-
+                    
                     .scrolling-text-inner {
-                        bottom: 0;
-                        left: 0;
-                        position: absolute;
-                        right: 0;
                         z-index: var(--z-index-low);
                     }
                 }
@@ -227,19 +239,30 @@ Mobile & Tablet
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------
-Tablet & Desktop
+Tablet
 -------------------------------------------------------------------------------------------------------------------------------------------------- */
-@media (min-width: 540px) {
+@media (max-width: 992px) and (min-width: 540px) {
     #shopify-section-header {
+        padding: calc(var(--base-padding) * 2) calc(var(--base-padding) * 4);
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------
+Desktop
+-------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    #shopify-section-header {
+        padding: calc(var(--base-padding) * 2) calc(var(--base-padding) * 6);
+        
         .header-inner {
             .header-nav {
                 button.header-nav-trigger {
-                    cursor: pointer;
+                    display: none;
 
                     &:hover {
                         background-color: var(--primary-color);
                         color: var(--secondary-color);
-
+                
                         .icon--wrapper {
                             svg {
                                 fill: var(--secondary-color);
@@ -249,34 +272,36 @@ Tablet & Desktop
                 }
 
                 .navigation {
-                    .navigation-inner {
-                        .nav-item {
-                            &:hover {
-                                opacity: .6;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-/* --------------------------------------------------------------------------------------------------------------------------------------------------
-Desktop
--------------------------------------------------------------------------------------------------------------------------------------------------- */
-@media (min-width: 992px) {
-    #shopify-section-header {
-        .header-inner {
-            .header-nav {
-                button.header-nav-trigger {
-                    display: none;
-                }
-
-                .navigation {
                     .section-title,
                     .scrolling-text-inner {
                         display: none;
+                    }
+
+                    .navigation-inner {
+                        @include flexbox(center, flex-end, row);
+                        gap: calc(var(--base-padding) * 2);
+
+                        .nav-item {
+                            transition: var(--fast-transtion);
+
+                            &:hover {
+                                opacity: .6;
+                            }
+
+                            &.current-nav-item {
+                                background-color: var(--secondary-color);
+                    
+                                .nav-link {
+                                    color: var(--primary-color);
+                                    padding: 0 calc(var(--base-padding) / 2);
+                                }
+                            }
+
+                            .nav-link {
+                                color: var(--secondary-color);
+                                font-size: 24px;
+                            }
+                        }
                     }
                 }
             }
